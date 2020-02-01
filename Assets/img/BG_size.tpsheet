@@ -1,0 +1,15 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# http://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:31f701d70ea47646cc7067b0b4cc693f:a04aff0259a061d088666f6c03da6ae1:5379a2ae56fa11e00df51014983bd43d$
+#
+:format=40300
+:texture=BG_size.png
+:size=2048x2048
+:pivotpoints=enabled
+:borders=disabled
+
+wea gamejam;1;902;2035;1145; 0.5;0.5; 0;0;0;0; 4;2035;0;0;0;0;1145;2035;1145; 2;1;2;3;0;1;3
