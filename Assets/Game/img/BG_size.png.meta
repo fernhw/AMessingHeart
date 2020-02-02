@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: -4390104746114669368
     second: wea gamejam
+  - first:
+      213: 8670697260824757915
+    second: halo
+  - first:
+      213: 1022100483269098914
+    second: h
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -76,6 +82,48 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites:
+    - serializedVersion: 2
+      name: h
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 644
+        width: 247
+        height: 256
+      alignment: 9
+      pivot: {x: 0.49190283, y: 0.48242188}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 1022100483269098914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: halo
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 397
+        width: 247
+        height: 245
+      alignment: 9
+      pivot: {x: 0.47165993, y: 0.4632653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 8670697260824757915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: wea gamejam
       rect:

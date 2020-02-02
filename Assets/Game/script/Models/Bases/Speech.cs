@@ -20,6 +20,7 @@ public class Speech {
 }
 
 public enum EventType {
+    FINALE,
     WHITE_SCREEN_JUMP,
     FIX,
     BLACK_SCREEN_TRANSITION,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using UnityEngine.SceneManagement;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -56,6 +57,9 @@ public class ObjectManager : MonoBehaviour
         //SetupStage
         ItemSearch();
         depthOff();
+
+        actionBlackOverlay.SetActive(true);
+        fullblackScreen.SetActive(true);
     }
 
 
@@ -165,7 +169,9 @@ public class ObjectManager : MonoBehaviour
             //  return TypeSequence.ITEM_SEARCH;
         }
 
-
+        if (speechHeld.type == EventType.FINALE) {
+            SceneManager.LoadScene("ED");
+        }
 
         if (!speechPack.isValidSPeech) {
             if(progress.heartHeal == 3) {
@@ -203,6 +209,8 @@ public class ObjectManager : MonoBehaviour
             prevType = TypeSequence.ON_ITEM;
             return TypeSequence.ITEM_SEARCH;
         }
+
+        
 
        
 

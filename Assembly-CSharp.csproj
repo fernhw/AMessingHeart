@@ -73,6 +73,7 @@
     <Compile Include="Assets\Game\script\ObjectManager.cs" />
     <Compile Include="Assets\Game\script\Progress.cs" />
     <Compile Include="Assets\Game\script\SpeechControl.cs" />
+    <Compile Include="Assets\GameStart.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />

@@ -47,6 +47,14 @@ public class Main:MonoBehaviour {
         progress.SetItem("photo_2", objs.photo2Stage, objs.photo2Inventory);
         progress.SetItem("ballerina", objs.ballerinaStage, objs.ballerinaInventory);
 
+        StartCoroutine("gameStart");
+    }
+
+    IEnumerator gameStart () {
+        yield return new WaitForEndOfFrame();
+        speechControl.Start(Events.start);
+
+        ChangeState(TypeSequence.DIALOG, inventoryButtonInOnItemView);
     }
 
     // Update is called once per frame
@@ -282,16 +290,28 @@ public class Main:MonoBehaviour {
     void StartDialog () {
         switch (focusedItem) {
         case "retrato":
-        speechControl.Start(Events.frameCutscene);
+        if (progress.Frame) {
+            speechControl.Start(Events.frameCutscene2);
+        } else {
+            speechControl.Start(Events.frameCutscene);
+        }
         break;
-
         case "oso":
-        speechControl.Start(Events.bearCutscene);
+        if (progress.Bear) {
+            speechControl.Start(Events.bearCutscene2);
+        } else {
+            speechControl.Start(Events.bearCutscene);
+        }
+        break;
+        case "caja_musica":
+        if (progress.Box) {
+            speechControl.Start(Events.dollCutscene2);
+        } else {
+            speechControl.Start(Events.dollCutscene);
+        }
         break;
 
-        case "caja_musica":
-        speechControl.Start(Events.dollCutscene);
-        break;
+
         case "stringstring":
         speechControl.Start(Events.stringStringFlavor);
         break;
@@ -352,15 +372,28 @@ public class Main:MonoBehaviour {
         case TypeSequence.ON_ITEM:
         switch (focusedItem) {
         case "retrato":
-        speechControl.Start(Events.frameCutsceneInv);
+        if (progress.Frame) {
+            speechControl.Start(Events.frameCutsceneI);
+        } else {
+            speechControl.Start(Events.frameCutsceneInv);
+        }
         break;
 
         case "oso":
-        speechControl.Start(Events.bearCutsceneInv);
+        if (progress.Bear) {
+            speechControl.Start(Events.bearCutsceneI);
+        } else {
+            speechControl.Start(Events.bearCutsceneInv);
+        }
         break;
 
         case "caja_musica":
-        speechControl.Start(Events.dollCutsceneInv);
+
+        if (progress.Box) {
+            speechControl.Start(Events.dollCutsceneI);
+        } else {
+            speechControl.Start(Events.dollCutsceneInv);
+        }
         break;
         }
         screenPreInventory = TypeSequence.ON_ITEM;
