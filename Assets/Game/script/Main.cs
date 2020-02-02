@@ -169,7 +169,7 @@ public class Main:MonoBehaviour {
 
         if (focusedItem == "oso") {
             if (prevKey == "button" && key == "stringstring") {
-                speechControl.Start(Events.what);
+                speechControl.Start(Events.fixBear);
             }
         }
 

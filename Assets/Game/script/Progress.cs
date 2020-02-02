@@ -13,6 +13,10 @@ public class Progress {
     public Item button = new Item("button");
     public Item ballerina = new Item("ballerina");
 
+    public bool Bear = false;
+    public bool Frame = false;
+    public bool Box = false;
+
     List<Item> items;
 
     public Progress () {

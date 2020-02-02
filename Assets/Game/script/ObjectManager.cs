@@ -133,6 +133,52 @@ public class ObjectManager : MonoBehaviour
             return TypeSequence.ITEM_SEARCH;
         }
 
+        if (speechHeld.type == EventType.FIX) {
+            ItemSearch();
+            if(speechHeld.dialog == "bear" && progress.Bear == false) {
+                progress.Bear = true;
+                buttonInventory.SetActive(false);
+                threadInventory.SetActive(false);
+                progress.heartHeal++;
+                
+            } else if (speechHeld.dialog == "frame") {
+                progress.Frame = true;
+                photo1Inventory.SetActive(false);
+                photo2Inventory.SetActive(false);
+                progress.heartHeal++;
+            } else if (speechHeld.dialog == "bear") {
+                progress.Frame = true;
+                ballerinaInventory.SetActive(false);
+                winderInventory.SetActive(false);
+                progress.heartHeal++;
+            }
+
+            merry.heart1.SetActive(false);
+            merry.heart2.SetActive(false);
+            merry.heart3.SetActive(false);
+            merry.heart4.SetActive(false);
+            switch (progress.GetHeartStatus()) {
+            case HeartStatus.ONE:
+            merry.heart1.SetActive(true);
+            break;
+            case HeartStatus.TWO:
+
+            merry.heart2.SetActive(true);
+            break;
+            case HeartStatus.THREE:
+
+            merry.heart3.SetActive(true);
+            break;
+            case HeartStatus.FOUR:
+
+            merry.heart4.SetActive(true);
+            break;
+            }
+
+            prevType = TypeSequence.ON_ITEM;
+            return TypeSequence.ITEM_SEARCH;
+        }
+
         HandleSpeechEvent(speechHeld, progress);
         return TypeSequence.DIALOG;
     }
