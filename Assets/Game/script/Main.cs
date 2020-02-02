@@ -151,6 +151,13 @@ public class Main:MonoBehaviour {
         speechControl.Start(Events.bearButton);
         inventoryLayer = 1;
         break;
+        case "stringstring":
+        speechControl.Start(Events.bearButtonThread);
+        inventoryLayer = 1;
+        break;
+        default:
+        speechControl.Start(Events.bearButtonPhotos);
+        break;
         }
         break;
 
@@ -172,11 +179,11 @@ public class Main:MonoBehaviour {
         case "retrato":
         switch (key) {
         case "photo1":
-        speechControl.Start(Events.pictureButtonP1);
+        speechControl.Start(Events.pictureButtonP2);
         inventoryLayer = 1;
         break;
         case "photo2":
-        speechControl.Start(Events.pictureButtonP2);
+        speechControl.Start(Events.pictureButtonP1);
         inventoryLayer = 1;
         break;
         }

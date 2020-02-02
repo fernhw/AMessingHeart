@@ -123,14 +123,13 @@ public class ObjectManager : MonoBehaviour
                 newPortrait.SetActive(true);
                 progress.heartHeal++;
             } else if (speechHeld.dialog == "box" && progress.Box == false) {
-                progress.Frame = true;
+                progress.Box = true;
                 ballerinaInventory.SetActive(false);
                 winderInventory.SetActive(false);
                 oldBox.SetActive(false);
                 newBox.SetActive(true);
                 progress.heartHeal++;
             } else if (speechHeld.dialog == "finale" && progress.Box == false) {
-                progress.Frame = true;
                 ballerinaInventory.SetActive(false);
                 winderInventory.SetActive(false);
                 oldBox.SetActive(false);
@@ -169,6 +168,14 @@ public class ObjectManager : MonoBehaviour
 
 
         if (!speechPack.isValidSPeech) {
+            if(progress.heartHeal == 3) {
+                progress.heartHeal = 4;
+                speechController.Start(Events.finale);
+                speechPack = speechController.Current();
+                speechHeld = speechPack.speech;
+                HandleSpeechEvent(speechHeld, progress);
+                return TypeSequence.DIALOG;
+            }
             if(prevType == TypeSequence.ON_ITEM) {
                 OnItem(showInventoryButton);
                 return TypeSequence.ON_ITEM;

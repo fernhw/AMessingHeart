@@ -23,7 +23,7 @@ public static class Events {
         new Speech("...A silent song.", emotion: MerryStatus.SAD)
     };
     public static List<Speech> dollCutsceneInv = new List<Speech> {
-        new Speech("Maybe I can piece it back together"),
+        new Speech("Maybe I can piece it back together."),
         new Speech(type:EventType.OPEN_INVENTORY)
     };
 
@@ -40,8 +40,8 @@ public static class Events {
 
     public static List<Speech> ButtonFlavor = new List<Speech> {
         new Speech("Looks like a cookie, but it's clearly a button.", emotion: MerryStatus.REGULAR),
-        new Speech("Maybe. I can attatch it to something.", emotion: MerryStatus.REGULAR),
-        new Speech("Obtained: Button", type: EventType.BLACK_SCREEN_DIALOG),
+        new Speech("Maybe. I can attach it to something.", emotion: MerryStatus.REGULAR),
+        new Speech("Obtained: Button.", type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("button",type:EventType.AQUIRE_ITEM)
     };
     public static List<Speech> Photo1Flavor = new List<Speech> {
@@ -49,26 +49,26 @@ public static class Events {
         new Speech("I feel this...", emotion: MerryStatus.REGULAR),
         new Speech("", emotion: MerryStatus.SAD),
         new Speech("This girl kind-of looks like me.", emotion: MerryStatus.REGULAR),
-        new Speech("Obtained: Photo of a Man", type: EventType.BLACK_SCREEN_DIALOG),
+        new Speech("Obtained: Photo of a Man.", type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("photo_1",type:EventType.AQUIRE_ITEM)        
     };
     public static List<Speech> Photo2Flavor = new List<Speech> {
         new Speech("A torn Photo of a woman.", emotion: MerryStatus.REGULAR),
-        new Speech("Obtained: Photo of a Woman", type: EventType.BLACK_SCREEN_DIALOG),
+        new Speech("Obtained: Photo of a Woman.", type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("photo_2",type:EventType.AQUIRE_ITEM)
     };
     public static List<Speech> stringStringFlavor = new List<Speech> {
         new Speech("A string and needle.", emotion: MerryStatus.JOYFUL),
-        new Speech("Perfect to fix about anything", emotion: MerryStatus.HAPPY),
-        new Speech("Almost anything", emotion: MerryStatus.WORRIED),
-        new Speech("Obtained: Thread", type: EventType.BLACK_SCREEN_DIALOG),
+        new Speech("Perfect to fix about anything.", emotion: MerryStatus.HAPPY),
+        new Speech("Almost anything...", emotion: MerryStatus.WORRIED),
+        new Speech("Obtained: Thread.", type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("thread",type:EventType.AQUIRE_ITEM)
     };
     public static List<Speech> ballerinaFlavor = new List<Speech> {
-        new Speech("A ballerina.", emotion: MerryStatus.WORRIED),
+        new Speech("A ballerina.", emotion: MerryStatus.HAPPY),
         new Speech("A beautiful ballerina.", emotion: MerryStatus.WORRIED),
         new Speech("I feel it belongs to something.", emotion: MerryStatus.WORRIED),
-        new Speech("Obtained: A Ballerina", type: EventType.BLACK_SCREEN_DIALOG),
+        new Speech("Obtained: A Ballerina.", type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("ballerina",type:EventType.AQUIRE_ITEM)
     };
     public static List<Speech> winderFlavor = new List<Speech> {
@@ -81,12 +81,12 @@ public static class Events {
 
 
     public static List<Speech> time = new List<Speech> {
-        new Speech("There's a time and place", emotion: MerryStatus.WORRIED, type: EventType.DIMMED_DIALOG)
+        new Speech("There's a time and place.", emotion: MerryStatus.WORRIED, type: EventType.DIMMED_DIALOG)
     };
 
     //BEAR
     public static List<Speech> bearButton = new List<Speech> {
-        new Speech("This will work as an eye", emotion: MerryStatus.JOYFUL),
+        new Speech("This can work as an eye.", emotion: MerryStatus.JOYFUL),
         new Speech("But how can I make it stick?", emotion: MerryStatus.WORRIED),
         new Speech("bear",type:EventType.OPEN_INVENTORY_2ND_STAGE)
     };
@@ -97,33 +97,33 @@ public static class Events {
         new Speech("I don't have a clue of what I'm doing.", emotion: MerryStatus.SAD),
     };
     public static List<Speech> fixBear = new List<Speech> {
-        new Speech("I will fix you up little fellow", emotion: MerryStatus.HAPPY),
+        new Speech("I will fix you up little fellow.", emotion: MerryStatus.HAPPY),
         new Speech("Snip", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("Snip", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("Snip", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("bear", type: EventType.FIX),
-        new Speech("100 times better", emotion: MerryStatus.HAPPY),
+        new Speech("100 times better.", emotion: MerryStatus.HAPPY),
     };
 
     //BOX
     public static List<Speech> boxButtonBall = new List<Speech> {
-        new Speech("One, word perfection", emotion: MerryStatus.REGULAR),
+        new Speech("One word, perfection.", emotion: MerryStatus.REGULAR),
         new Speech("...", emotion: MerryStatus.WORRIED),
-        new Speech("I still need to make her flip around and dance", emotion: MerryStatus.WORRIED),
+        new Speech("I still need to make her flip around and dance.", emotion: MerryStatus.WORRIED),
         new Speech("winder",type:EventType.OPEN_INVENTORY_2ND_STAGE)
     };
     public static List<Speech> boxButtonWinder = new List<Speech> {
-        new Speech("It's making sound, but where is the finess.", emotion: MerryStatus.REGULAR),
+        new Speech("It's making sound, but where is the finesse.", emotion: MerryStatus.REGULAR),
         new Speech("The spectacle.", emotion: MerryStatus.REGULAR),
         new Speech("winder",type:EventType.OPEN_INVENTORY_2ND_STAGE)
     };
     public static List<Speech> fixBox = new List<Speech> {
-        new Speech("Ok, I know what to do", emotion: MerryStatus.HAPPY),
+        new Speech("Ok, I know what to do.", emotion: MerryStatus.HAPPY),
         new Speech("This goes here!", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("Twist and........", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("Click", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("box", type: EventType.FIX),
-        new Speech("100 times better", emotion: MerryStatus.HAPPY),
+        new Speech("100 times better.", emotion: MerryStatus.HAPPY),
     };
 
 
@@ -131,26 +131,30 @@ public static class Events {
     public static List<Speech> pictureButtonP1 = new List<Speech> {
         new Speech("You, and her.", emotion: MerryStatus.REGULAR),
         new Speech("...", emotion: MerryStatus.WORRIED),
-        new Speech("It's still missing someone", emotion: MerryStatus.WORRIED),
+        new Speech("It's still missing someone.", emotion: MerryStatus.WORRIED),
         new Speech("winder",type:EventType.OPEN_INVENTORY_2ND_STAGE)
     };
     public static List<Speech> pictureButtonP2 = new List<Speech> {
-        new Speech("Here you are", emotion: MerryStatus.REGULAR),
+        new Speech("Here you are.", emotion: MerryStatus.REGULAR),
         new Speech("...", emotion: MerryStatus.SAD),
         new Speech("There's a whole triangle where I can fit more photo.", emotion: MerryStatus.REGULAR),
         new Speech("winder",type:EventType.OPEN_INVENTORY_2ND_STAGE)
     };
     public static List<Speech> pictureButtonFinale = new List<Speech> {
-        new Speech("Here", emotion: MerryStatus.HAPPY),
+        new Speech("Here.", emotion: MerryStatus.HAPPY),
         new Speech("...", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("frame", type: EventType.FIX),
-        new Speech("100 times better", emotion: MerryStatus.HAPPY),
+        new Speech("100 times better.", emotion: MerryStatus.SAD),
     };
 
-    public static List<Speech> Finale = new List<Speech> {
-        new Speech("And so I fell asleep", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
+    public static List<Speech> finale = new List<Speech> {
+        new Speech("Odd...", emotion: MerryStatus.WORRIED),
+        new Speech("I feel...", emotion: MerryStatus.REGULAR),
+        new Speech("..whole..", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
+        new Speech("And so I fell asleep.", emotion: MerryStatus.JOYFUL, type: EventType.BLACK_SCREEN_DIALOG),
+        new Speech("Finally.", emotion: MerryStatus.HAPPY, type: EventType.DIMMED_DIALOG),
+        new Speech("I feel 100 times better.", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("finale", type: EventType.FIX),
-        new Speech("I feel 100 times better", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         //FINALE CG
     };
 

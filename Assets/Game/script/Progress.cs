@@ -32,7 +32,7 @@ public class Progress {
             if (search == item.name) {
                 item.stageObject = stage;
                 item.inventoryObject = inventory;
-               // inventory.SetActive(false);
+                inventory.SetActive(false);
                 break;
             }
         }
