@@ -16,6 +16,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject backButton;
     public GameObject inventoryButton;
     public GameObject inventoryButton2;
+    public GameObject inventoryOptionOnItemView;
 
     public GameObject speech;
     public TextMeshProUGUI dialogText;
@@ -30,8 +31,23 @@ public class ObjectManager : MonoBehaviour
 
     TypeSequence prevType;
 
+    float currentCharacterInScrollf = 0;
     int currentCharacterInScroll = 0;
     int totalCharactersInText = 0;
+
+    public GameObject buttonStage;
+    public GameObject buttonInventory;
+    public GameObject threadStage;
+    public GameObject threadInventory;
+    public GameObject photo1Stage;
+    public GameObject photo1Inventory;
+    public GameObject photo2Stage;
+    public GameObject photo2Inventory;
+    public GameObject winderStage;
+    public GameObject winderInventory;
+    public GameObject ballerinaStage;
+    public GameObject ballerinaInventory;
+
 
 
     private void Start () {
@@ -40,8 +56,12 @@ public class ObjectManager : MonoBehaviour
         depthOff();
     }
 
+
+
     private void Update () {
-        currentCharacterInScroll++;
+        currentCharacterInScrollf += 0.5f;
+        currentCharacterInScroll = (int) currentCharacterInScrollf;
+
         actionText.maxVisibleCharacters = currentCharacterInScroll;
         dialogText.maxVisibleCharacters = currentCharacterInScroll;
     }
@@ -53,12 +73,16 @@ public class ObjectManager : MonoBehaviour
         inventoryButton.SetActive(true);
         backButton.SetActive(false);
     }
-
-    public void OnItem () {
+    bool showInventoryButton;
+    public void OnItem (bool showInventoryButton) {
+        this.showInventoryButton = showInventoryButton;
         prevType = TypeSequence.ON_ITEM;
         cameraIsOnTheItem = true;
         DisableScreens();
         inventoryButton2.SetActive(true);
+        if (showInventoryButton) {
+            inventoryOptionOnItemView.SetActive(true);
+        }
     }
 
     public void OnDialog (SpeechControl speechController, Progress progress) {
@@ -67,12 +91,22 @@ public class ObjectManager : MonoBehaviour
     }
 
     public TypeSequence NextSpeechAndNewTypeSequence (SpeechControl speechController, Progress progress) {
+        if(currentCharacterInScroll < totalCharactersInText + 23) {
+            if (currentCharacterInScroll < totalCharactersInText) {
+                currentCharacterInScrollf = ( float )totalCharactersInText;
+                currentCharacterInScroll = totalCharactersInText;
+                actionText.maxVisibleCharacters = totalCharactersInText;
+                dialogText.maxVisibleCharacters = totalCharactersInText;
+                
+            }
+            return TypeSequence.DIALOG;
+        }
         DisableScreens();
         SpeechPackage speechPack = speechController.Continue();
         Speech speechHeld = speechPack.speech;
         if (!speechPack.isValidSPeech) {
             if(prevType == TypeSequence.ON_ITEM) {
-                OnItem();
+                OnItem(showInventoryButton);
                 return TypeSequence.ON_ITEM;
             } else {
                 //TypeSequence.ITEM_SEARCH
@@ -80,6 +114,25 @@ public class ObjectManager : MonoBehaviour
                 return TypeSequence.ITEM_SEARCH;
             }
         }
+        if(speechHeld.type == EventType.OPEN_INVENTORY) {
+            OnInventory();
+            prevType = TypeSequence.ON_ITEM;
+            return TypeSequence.INVENTORY;
+        }
+
+        if (speechHeld.type == EventType.OPEN_INVENTORY_2ND_STAGE) {
+            OnInventory();
+            prevType = TypeSequence.ON_ITEM;
+            return TypeSequence.INVENTORY;
+        }
+
+        if (speechHeld.type == EventType.AQUIRE_ITEM) {
+            ItemSearch();
+            progress.GetItem(speechHeld.dialog);
+            prevType = TypeSequence.ON_ITEM;
+            return TypeSequence.ITEM_SEARCH;
+        }
+
         HandleSpeechEvent(speechHeld, progress);
         return TypeSequence.DIALOG;
     }
@@ -117,6 +170,7 @@ public class ObjectManager : MonoBehaviour
         break;
         }
         currentCharacterInScroll = 0;
+        currentCharacterInScrollf = 0;
         uiScreenClick.SetActive(true);
         wholeScreen.SetActive(true);
     }
@@ -139,6 +193,7 @@ public class ObjectManager : MonoBehaviour
         uiScreenClick.SetActive(false);
         actionBlackOverlay.SetActive(false);
         fullblackScreen.SetActive(false);
+        inventoryOptionOnItemView.SetActive(false);
     }
 
     public void DisableUI () {

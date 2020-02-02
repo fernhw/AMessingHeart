@@ -20,6 +20,7 @@ public class Main:MonoBehaviour {
     TypeSequence screenPreItemFocus = TypeSequence.ITEM_SEARCH;
 
     string focusedItem;
+
     ObjectManager objs;
     Vector3 start;
     Vector3 targetItem;
@@ -27,6 +28,7 @@ public class Main:MonoBehaviour {
     Progress progress;
     bool interactionLock = false;
     bool disableUI = false;
+    bool inventoryButtonInOnItemView = true;
 
     void Start () {
         start = transform.localPosition;
@@ -34,6 +36,14 @@ public class Main:MonoBehaviour {
         objs = ( ObjectManager )FindObjectOfType(typeof(ObjectManager));
         speechControl = new SpeechControl();
         progress = new Progress();
+
+        progress.SetItem("winder", objs.winderStage, objs.winderInventory);
+        progress.SetItem("button", objs.buttonStage, objs.buttonInventory);
+        progress.SetItem("thread", objs.threadStage, objs.threadInventory);
+        progress.SetItem("photo_1", objs.photo1Stage, objs.photo1Inventory);
+        progress.SetItem("photo_2", objs.photo2Stage, objs.photo2Inventory);
+        progress.SetItem("ballerina", objs.ballerinaStage, objs.ballerinaInventory);
+
     }
 
     // Update is called once per frame
@@ -102,22 +112,71 @@ public class Main:MonoBehaviour {
         if (currentState != TypeSequence.ITEM_SEARCH)
             break;
         targetItem = obj.transform.localPosition + Vector3.forward * CAM_CLOSENESS;
-        ChangeState(TypeSequence.ON_ITEM);
+        ChangeState(TypeSequence.ON_ITEM, true);
         DisableUIOnAnim(.8f);
         DisableUIWhileAnimation(ANIMATION_PAUSE_TO_ITEM);
         focusedItem = obj.objectIdentifier;
         break;
 
+        case TypeOfTarget.ITEM:
         case TypeOfTarget.UI:
-        HandleButton(objectN);
+        HandleButton(objectN, obj);
         break;
-
+        case TypeOfTarget.UI_INVENTORY:
+        if (inventoryLayer == 0) {
+            HandleInvButton(objectN, obj);
+        } else {
+            HandleInv2Button(objectN, obj);
+        }
+        break;
         default:
         break;
         }
     }
 
-    void HandleButton (string key) {
+    int inventoryLayer = 0;
+    string prevKey = "";
+    void HandleInvButton (string key, ClickedHack obj) {
+        inventoryLayer = 0;
+        prevKey = key;
+        switch (focusedItem) {
+        case "oso":
+        switch (key) {
+        case "button":
+        speechControl.Start(Events.bearButton);
+        inventoryLayer = 1;
+        break;
+        }
+        break;
+        default:
+        //speechControl.Start(Events.what);
+        //FLAVOR TEXTS
+
+        speechControl.Start(Events.time);
+        switch (key) {
+        case "button":
+        inventoryLayer = 1;
+        break;
+        }
+        break;
+
+        }
+
+        ChangeState(TypeSequence.DIALOG, inventoryButtonInOnItemView);
+    }
+
+    void HandleInv2Button (string key, ClickedHack obj) {
+
+        if (focusedItem == "oso") {
+            if (prevKey == "button" && key == "stringstring") {
+                speechControl.Start(Events.what);
+            }
+        }
+
+        ChangeState(TypeSequence.DIALOG, inventoryButtonInOnItemView);
+    }
+
+    void HandleButton (string key, ClickedHack obj) {
         switch (key) {
         case "back_button":
         BackButton();
@@ -130,14 +189,26 @@ public class Main:MonoBehaviour {
         case "look_button":
         StartDialog();
         break;
+
         case "screen":
         Continue();
         break;
+
+
         default:
         break;
         }
-    }
 
+        if (obj.objectIdentifier == "item") {
+            targetItem = obj.transform.localPosition + Vector3.forward * CAM_CLOSENESS;
+            DisableUIOnAnim(.8f);
+            DisableUIWhileAnimation(ANIMATION_PAUSE_TO_ITEM);
+            focusedItem = obj.idString;
+            extra = obj.objectIdentifier;
+            ChangeState(TypeSequence.ON_ITEM, false);
+        }
+    }
+    string extra = "";
     void Continue () {
         switch (currentState) {
         case TypeSequence.DIALOG:
@@ -166,29 +237,47 @@ public class Main:MonoBehaviour {
         case "caja_musica":
         speechControl.Start(Events.dollCutscene);
         break;
+        case "stringstring":
+        speechControl.Start(Events.stringStringFlavor);
+        break;
+        case "button":
+        speechControl.Start(Events.ButtonFlavor);
+        break;
+        case "ballerina":
+        speechControl.Start(Events.ballerinaFlavor);
+        break;
+        case "photo_1":
+        speechControl.Start(Events.Photo1Flavor);
+        break;
+        case "photo_2":
+        speechControl.Start(Events.Photo2Flavor);
+        break;
+        case "winder":
+        speechControl.Start(Events.winderFlavor);
+        break;
         }
-        ChangeState(TypeSequence.DIALOG);
+        ChangeState(TypeSequence.DIALOG, inventoryButtonInOnItemView);
     }
 
     void BackButton () {
         switch (currentState) {
         case TypeSequence.ON_ITEM:
         //
-        ChangeState(TypeSequence.ITEM_SEARCH);
+        ChangeState(TypeSequence.ITEM_SEARCH, inventoryButtonInOnItemView);
         DisableUIOnAnim(.8f);
 
         break;
 
         case TypeSequence.INVENTORY:
         // it remembers screen pre inventory
-        ChangeState(screenPreInventory);
+        ChangeState(screenPreInventory, inventoryButtonInOnItemView);
         //DisableUIWhileAnimation(ANIMATION_PAUSE_TO_VIEW);
 
         break;
 
         case TypeSequence.DIALOG:
         // it remembers screen pre inventory
-        ChangeState(screenPreInventory);
+        ChangeState(screenPreInventory, inventoryButtonInOnItemView);
         //DisableUIWhileAnimation(ANIMATION_PAUSE_TO_VIEW);
 
         break;
@@ -199,11 +288,40 @@ public class Main:MonoBehaviour {
     }
 
     void InventoryButton () {
-        ChangeState(TypeSequence.INVENTORY);
+        inventoryLayer = 0;
+        switch (currentState) {
+        case TypeSequence.ITEM_SEARCH:
+        ChangeState(TypeSequence.INVENTORY, inventoryButtonInOnItemView);
+        break;
+
+        case TypeSequence.ON_ITEM:
+        switch (focusedItem) {
+        case "retrato":
+        speechControl.Start(Events.frameCutsceneInv);
+        break;
+
+        case "oso":
+        speechControl.Start(Events.bearCutsceneInv);
+        break;
+
+        case "caja_musica":
+        speechControl.Start(Events.dollCutsceneInv);
+        break;
+        }
+        screenPreInventory = TypeSequence.ON_ITEM;
+        screenPreItemFocus = TypeSequence.ON_ITEM;
+
+        ChangeState(TypeSequence.DIALOG, true);
+
+        break;
+        }
     }
 
     IEnumerator disableUIStateMachine;
-    void ChangeState (TypeSequence state) {
+    void ChangeState (TypeSequence state, bool inventoryButtonInOnItemView) {
+       
+        this.inventoryButtonInOnItemView = inventoryButtonInOnItemView;
+
         switch (state) {
         case TypeSequence.ITEM_SEARCH:
         objs.ItemSearch();
@@ -211,7 +329,7 @@ public class Main:MonoBehaviour {
 
         case TypeSequence.ON_ITEM:
         screenPreItemFocus = currentState;
-        objs.OnItem();
+        objs.OnItem(inventoryButtonInOnItemView);
         break;
 
         case TypeSequence.INVENTORY:

@@ -28,7 +28,7 @@ MonoBehaviour:
   fog:
     m_Enabled: 0
     m_Settings:
-      excludeSkybox: 1
+      excludeSkybox: 0
   antialiasing:
     m_Enabled: 0
     m_Settings:
@@ -78,7 +78,7 @@ MonoBehaviour:
       useCameraFov: 0
       kernelSize: 1
   motionBlur:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       shutterAngle: 0
       sampleCount: 4
@@ -101,14 +101,14 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.5
-        threshold: 1.1
-        softKnee: 0.55
-        radius: 4.2
+        intensity: 29.79
+        threshold: 0.9
+        softKnee: 0.57
+        radius: 6.1
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
-        intensity: 3
+        intensity: 0
   colorGrading:
     m_Enabled: 0
     m_Settings:
@@ -311,12 +311,12 @@ MonoBehaviour:
       spectralTexture: {fileID: 0}
       intensity: 0.27
   grain:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       colored: 1
-      intensity: 0.5
-      size: 1
-      luminanceContribution: 0.8
+      intensity: 0.566
+      size: 0.71
+      luminanceContribution: 0.923
   vignette:
     m_Enabled: 1
     m_Settings:

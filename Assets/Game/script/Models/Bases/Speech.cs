@@ -21,11 +21,14 @@ public class Speech {
 
 public enum EventType {
     WHITE_SCREEN_JUMP,
+    FIX,
     BLACK_SCREEN_TRANSITION,
     CG,
     DIALOG,
     DIMMED_DIALOG,
     BLACK_SCREEN_DIALOG,
+    OPEN_INVENTORY,
+    OPEN_INVENTORY_2ND_STAGE,
     AQUIRE_ITEM
 
 }

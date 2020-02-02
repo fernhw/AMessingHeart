@@ -28,6 +28,7 @@ public class ClickedHack : MonoBehaviour
 
 public enum TypeOfTarget {
     UI,
+    UI_INVENTORY,
     ITEM,
     FIXER
 }

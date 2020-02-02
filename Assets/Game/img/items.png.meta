@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: 359954027183376040
     second: pieaza bailarina2
+  - first:
+      213: 4896321453631024135
+    second: caja bailarina falta
+  - first:
+      213: 539004075040752378
+    second: osofalta
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -146,6 +152,27 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: caja bailarina falta
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1151
+        width: 311
+        height: 208
+      alignment: 9
+      pivot: {x: 0.35691318, y: 0.9567308}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 4896321453631024135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: cuadro incompleto
       rect:
         serializedVersion: 2
@@ -170,8 +197,8 @@ TextureImporter:
       name: cuadro1
       rect:
         serializedVersion: 2
-        x: 769
-        y: 1020
+        x: 1
+        y: 791
         width: 171
         height: 249
       alignment: 9
@@ -191,7 +218,7 @@ TextureImporter:
       name: cuadro2
       rect:
         serializedVersion: 2
-        x: 635
+        x: 652
         y: 1145
         width: 132
         height: 214
@@ -272,11 +299,32 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: osofalta
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 884
+        width: 218
+        height: 385
+      alignment: 9
+      pivot: {x: 0.53669727, y: 0.5012987}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 539004075040752378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: pieaza bailarina1
       rect:
         serializedVersion: 2
         x: 339
-        y: 970
+        y: 760
         width: 294
         height: 389
       alignment: 9

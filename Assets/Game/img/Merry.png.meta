@@ -128,8 +128,8 @@ TextureImporter:
       name: back
       rect:
         serializedVersion: 2
-        x: 878
-        y: 1417
+        x: 1
+        y: 280
         width: 134
         height: 135
       alignment: 9
@@ -140,7 +140,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 1187961194834725857
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -150,18 +150,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 870
-        width: 673
-        height: 1177
+        y: 738
+        width: 745
+        height: 1309
       alignment: 9
-      pivot: {x: 0.4576523, y: 0.30458793}
+      pivot: {x: 0.5033557, y: 0.3051948}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: -453642369625735197
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -171,7 +171,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 700
+        y: 568
         width: 472
         height: 168
       alignment: 9
@@ -182,7 +182,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 2244317603865722534
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -191,7 +191,7 @@ TextureImporter:
       name: dustCloud
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 1347
         width: 200
         height: 205
@@ -203,7 +203,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 7058120418760794192
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
       name: EYES_CLOSED-HAPPY
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 1665
         width: 229
         height: 109
@@ -224,7 +224,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 1627178162572345994
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
       name: EYES_CLOSED
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 1554
         width: 229
         height: 109
@@ -245,7 +245,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 289810190608680880
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -254,7 +254,7 @@ TextureImporter:
       name: EYES_SAD
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 1776
         width: 233
         height: 134
@@ -266,7 +266,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: -1225260284878119034
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -275,7 +275,7 @@ TextureImporter:
       name: EYES_WORRY
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 1912
         width: 240
         height: 135
@@ -287,7 +287,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 8924907702337693973
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -296,8 +296,8 @@ TextureImporter:
       name: HEART_001
       rect:
         serializedVersion: 2
-        x: 911
-        y: 1807
+        x: 902
+        y: 687
         width: 109
         height: 103
       alignment: 9
@@ -308,7 +308,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: -2517601109984023510
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -317,7 +317,7 @@ TextureImporter:
       name: HEART_002
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 952
         width: 173
         height: 120
@@ -329,7 +329,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 6957995777066912946
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -338,8 +338,8 @@ TextureImporter:
       name: HEART_003
       rect:
         serializedVersion: 2
-        x: 851
-        y: 914
+        x: 748
+        y: 792
         width: 170
         height: 158
       alignment: 9
@@ -350,7 +350,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 2162836046094215502
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -360,7 +360,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 475
-        y: 645
+        y: 417
         width: 436
         height: 223
       alignment: 9
@@ -371,7 +371,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 3662740065791102391
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -380,7 +380,7 @@ TextureImporter:
       name: item
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 1167
         width: 181
         height: 178
@@ -392,7 +392,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: -1230289513956745354
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -401,8 +401,8 @@ TextureImporter:
       name: look
       rect:
         serializedVersion: 2
-        x: 859
-        y: 1197
+        x: 748
+        y: 642
         width: 152
         height: 148
       alignment: 9
@@ -413,7 +413,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: -3090725056340673742
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -422,7 +422,7 @@ TextureImporter:
       name: looki
       rect:
         serializedVersion: 2
-        x: 676
+        x: 748
         y: 1074
         width: 180
         height: 91
@@ -434,7 +434,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 7197866658520056255
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -443,8 +443,8 @@ TextureImporter:
       name: MOUTH_SAD
       rect:
         serializedVersion: 2
-        x: 918
-        y: 2003
+        x: 931
+        y: 1301
         width: 80
         height: 44
       alignment: 9
@@ -455,7 +455,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 2948681667644557649
+      internalID: 0
       vertices: []
       indices: 
       edges: []
@@ -464,8 +464,8 @@ TextureImporter:
       name: MOUTH_SMILE
       rect:
         serializedVersion: 2
-        x: 918
-        y: 1956
+        x: 931
+        y: 1254
         width: 74
         height: 45
       alignment: 9
@@ -476,7 +476,7 @@ TextureImporter:
       tessellationDetail: -1
       bones: []
       spriteID: 
-      internalID: 3485765965022910622
+      internalID: 0
       vertices: []
       indices: 
       edges: []

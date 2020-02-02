@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{09E3D54D-9272-CFA9-9D9D-568424EA4CC5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Game/script/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Game/script/ClickedHack.cs">
     <Files>
-      <File FileName="Assets/Game/script/Main.cs" Line="13" Column="33" />
-      <File FileName="Assets/Merry.cs" Line="22" Column="24" />
-      <File FileName="Assets/Game/script/ObjectManager.cs" Line="77" Column="38" />
-      <File FileName="Assets/Game/script/Models/Bases/Speech.cs" Line="20" Column="1" />
-      <File FileName="Assets/Game/script/Models/Cutscenes.cs" Line="26" Column="7" />
-      <File FileName="Assets/Game/script/SpeechControl.cs" Line="14" Column="1" />
-      <File FileName="Assets/Game/script/Progress.cs" Line="23" Column="6" />
+      <File FileName="Assets/Game/script/Main.cs" Line="126" Column="24" />
+      <File FileName="Assets/Merry.cs" Line="15" Column="17" />
+      <File FileName="Assets/Game/script/ObjectManager.cs" Line="13" Column="1" />
+      <File FileName="Assets/Game/script/Models/Bases/Speech.cs" Line="11" Column="32" />
+      <File FileName="Assets/Game/script/Models/Cutscenes.cs" Line="15" Column="42" />
+      <File FileName="Assets/Game/script/SpeechControl.cs" Line="9" Column="59" />
+      <File FileName="Assets/Game/script/Progress.cs" Line="22" Column="6" />
+      <File FileName="Assets/Game/script/ClickedHack.cs" Line="31" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +20,7 @@
                   <Node name="Models" expanded="True">
                     <Node name="Bases" expanded="True" />
                   </Node>
-                  <Node name="Main.cs" selected="True" />
+                  <Node name="ClickedHack.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
