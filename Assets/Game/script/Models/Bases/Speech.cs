@@ -1,18 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
 
-public class Speech : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+[System.Serializable]
+public class Speech {
+    public string dialog = "";
+    public MerryStatus emotion = MerryStatus.REGULAR;
+    public EventType type = EventType.DIALOG;
+    public SpecialEffect specialEffect = SpecialEffect.SIMPLE;
+
+    public Speech (string dialog = "",
+        MerryStatus emotion = MerryStatus.REGULAR,
+        EventType type = EventType.DIALOG,
+        SpecialEffect specialEffect = SpecialEffect.SIMPLE) {
+        this.dialog = dialog;
+        this.emotion = emotion;
+        this.type = type;
+        this.specialEffect = specialEffect;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+}
+
+public enum EventType {
+    WHITE_SCREEN_JUMP,
+    BLACK_SCREEN_TRANSITION,
+    CG,
+    DIALOG,
+    DIMMED_DIALOG,
+    BLACK_SCREEN_DIALOG
+}
+
+public enum SpecialEffect {
+    SIMPLE,
+    WHITE_SCREEN_JUMP
 }

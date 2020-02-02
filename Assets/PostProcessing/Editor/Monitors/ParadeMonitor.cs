@@ -2,10 +2,8 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.PostProcessing;
 
-namespace UnityEditor.PostProcessing
-{
-    public class ParadeMonitor : PostProcessingMonitor
-    {
+namespace UnityEditor.PostProcessing {
+    public class ParadeMonitor:PostProcessingMonitor {
         static GUIContent s_MonitorTitle = new GUIContent("Parade");
 
         ComputeShader m_ComputeShader;
@@ -14,13 +12,11 @@ namespace UnityEditor.PostProcessing
         RenderTexture m_WaveformTexture;
         Rect m_MonitorAreaRect;
 
-        public ParadeMonitor()
-        {
+        public ParadeMonitor () {
             m_ComputeShader = EditorResources.Load<ComputeShader>("Monitors/WaveformCompute.compute");
         }
 
-        public override void Dispose()
-        {
+        public override void Dispose () {
             GraphicsUtils.Destroy(m_Material);
             GraphicsUtils.Destroy(m_WaveformTexture);
 
@@ -32,18 +28,15 @@ namespace UnityEditor.PostProcessing
             m_Buffer = null;
         }
 
-        public override bool IsSupported()
-        {
+        public override bool IsSupported () {
             return m_ComputeShader != null && GraphicsUtils.supportsDX11;
         }
 
-        public override GUIContent GetMonitorTitle()
-        {
+        public override GUIContent GetMonitorTitle () {
             return s_MonitorTitle;
         }
 
-        public override void OnMonitorSettings()
-        {
+        public override void OnMonitorSettings () {
             EditorGUI.BeginChangeCheck();
 
             bool refreshOnPlay = m_MonitorSettings.refreshOnPlay;
@@ -52,8 +45,7 @@ namespace UnityEditor.PostProcessing
             refreshOnPlay = GUILayout.Toggle(refreshOnPlay, new GUIContent(FxStyles.playIcon, "Keep refreshing the parade in play mode; this may impact performances."), FxStyles.preButton);
             exposure = GUILayout.HorizontalSlider(exposure, 0.05f, 0.3f, FxStyles.preSlider, FxStyles.preSliderThumb, GUILayout.Width(40f));
 
-            if (EditorGUI.EndChangeCheck())
-            {
+            if (EditorGUI.EndChangeCheck()) {
                 Undo.RecordObject(m_BaseEditor.serializedObject.targetObject, "Parade Settings Changed");
                 m_MonitorSettings.refreshOnPlay = refreshOnPlay;
                 m_MonitorSettings.paradeExposure = exposure;
@@ -61,10 +53,8 @@ namespace UnityEditor.PostProcessing
             }
         }
 
-        public override void OnMonitorGUI(Rect r)
-        {
-            if (Event.current.type == EventType.Repaint)
-            {
+        public override void OnMonitorGUI (Rect r) {
+            if (Event.current.type == UnityEngine.EventType.Repaint) {
                 // If m_MonitorAreaRect isn't set the preview was just opened so refresh the render to get the waveform data
                 if (Mathf.Approximately(m_MonitorAreaRect.width, 0) && Mathf.Approximately(m_MonitorAreaRect.height, 0))
                     InternalEditorUtility.RepaintAllViews();
@@ -83,8 +73,7 @@ namespace UnityEditor.PostProcessing
                         width, height
                         );
 
-                if (m_WaveformTexture != null)
-                {
+                if (m_WaveformTexture != null) {
                     m_Material.SetFloat("_Exposure", m_MonitorSettings.paradeExposure);
 
                     var oldActive = RenderTexture.active;
@@ -108,26 +97,26 @@ namespace UnityEditor.PostProcessing
                     var H = new Vector3(D.x, D.y + m_MonitorAreaRect.height + 1f);
                     var K = new Vector3(A.x, H.y);
 
-                    var F = new Vector3(D.x, D.y + (H.y - D.y) / 2f);
-                    var M = new Vector3(A.x, A.y + (K.y - A.y) / 2f);
+                    var F = new Vector3(D.x, D.y + ( H.y - D.y ) / 2f);
+                    var M = new Vector3(A.x, A.y + ( K.y - A.y ) / 2f);
 
-                    var B = new Vector3(A.x + (D.x - A.x) / 3f, A.y);
-                    var C = new Vector3(A.x + (D.x - A.x) * 2f / 3f, A.y);
-                    var I = new Vector3(K.x + (H.x - K.x) * 2f / 3f, K.y);
-                    var J = new Vector3(K.x + (H.x - K.x) / 3f, K.y);
+                    var B = new Vector3(A.x + ( D.x - A.x ) / 3f, A.y);
+                    var C = new Vector3(A.x + ( D.x - A.x ) * 2f / 3f, A.y);
+                    var I = new Vector3(K.x + ( H.x - K.x ) * 2f / 3f, K.y);
+                    var J = new Vector3(K.x + ( H.x - K.x ) / 3f, K.y);
 
-                    var N = new Vector3(A.x, A.y + (M.y - A.y) / 2f);
-                    var L = new Vector3(A.x, M.y + (K.y - M.y) / 2f);
-                    var E = new Vector3(D.x, D.y + (F.y - D.y) / 2f);
-                    var G = new Vector3(D.x, F.y + (H.y - F.y) / 2f);
+                    var N = new Vector3(A.x, A.y + ( M.y - A.y ) / 2f);
+                    var L = new Vector3(A.x, M.y + ( K.y - M.y ) / 2f);
+                    var E = new Vector3(D.x, D.y + ( F.y - D.y ) / 2f);
+                    var G = new Vector3(D.x, F.y + ( H.y - F.y ) / 2f);
 
-                    var O = new Vector3(A.x + (B.x - A.x) / 2f, A.y);
-                    var P = new Vector3(B.x + (C.x - B.x) / 2f, B.y);
-                    var Q = new Vector3(C.x + (D.x - C.x) / 2f, C.y);
+                    var O = new Vector3(A.x + ( B.x - A.x ) / 2f, A.y);
+                    var P = new Vector3(B.x + ( C.x - B.x ) / 2f, B.y);
+                    var Q = new Vector3(C.x + ( D.x - C.x ) / 2f, C.y);
 
-                    var R = new Vector3(I.x + (H.x - I.x) / 2f, I.y);
-                    var S = new Vector3(J.x + (I.x - J.x) / 2f, J.y);
-                    var T = new Vector3(K.x + (J.x - K.x) / 2f, K.y);
+                    var R = new Vector3(I.x + ( H.x - I.x ) / 2f, I.y);
+                    var S = new Vector3(J.x + ( I.x - J.x ) / 2f, J.y);
+                    var T = new Vector3(K.x + ( J.x - K.x ) / 2f, K.y);
 
                     // Borders
                     Handles.color = color;
@@ -182,15 +171,14 @@ namespace UnityEditor.PostProcessing
             }
         }
 
-        public override void OnFrameData(RenderTexture source)
-        {
+        public override void OnFrameData (RenderTexture source) {
             if (Application.isPlaying && !m_MonitorSettings.refreshOnPlay)
                 return;
 
             if (Mathf.Approximately(m_MonitorAreaRect.width, 0) || Mathf.Approximately(m_MonitorAreaRect.height, 0))
                 return;
 
-            float ratio = ((float)source.width / (float)source.height) / 3f;
+            float ratio = ( ( float )source.width / ( float )source.height ) / 3f;
             int h = 384;
             int w = Mathf.FloorToInt(h * ratio);
 
@@ -201,19 +189,14 @@ namespace UnityEditor.PostProcessing
             RenderTexture.ReleaseTemporary(rt);
         }
 
-        void CreateBuffer(int width, int height)
-        {
+        void CreateBuffer (int width, int height) {
             m_Buffer = new ComputeBuffer(width * height, sizeof(uint) << 2);
         }
 
-        void ComputeWaveform(RenderTexture source)
-        {
-            if (m_Buffer == null)
-            {
+        void ComputeWaveform (RenderTexture source) {
+            if (m_Buffer == null) {
                 CreateBuffer(source.width, source.height);
-            }
-            else if (m_Buffer.count != (source.width * source.height))
-            {
+            } else if (m_Buffer.count != ( source.width * source.height )) {
                 m_Buffer.Release();
                 CreateBuffer(source.width, source.height);
             }
@@ -235,11 +218,9 @@ namespace UnityEditor.PostProcessing
             cs.SetVector("_Channels", channels);
             cs.Dispatch(kernel, source.width, 1, 1);
 
-            if (m_WaveformTexture == null || m_WaveformTexture.width != (source.width * 3) || m_WaveformTexture.height != source.height)
-            {
+            if (m_WaveformTexture == null || m_WaveformTexture.width != ( source.width * 3 ) || m_WaveformTexture.height != source.height) {
                 GraphicsUtils.Destroy(m_WaveformTexture);
-                m_WaveformTexture = new RenderTexture(source.width * 3, source.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear)
-                {
+                m_WaveformTexture = new RenderTexture(source.width * 3, source.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear) {
                     hideFlags = HideFlags.DontSave,
                     wrapMode = TextureWrapMode.Clamp,
                     filterMode = FilterMode.Bilinear

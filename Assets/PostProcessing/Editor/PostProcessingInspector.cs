@@ -5,21 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace UnityEditor.PostProcessing
-{
+namespace UnityEditor.PostProcessing {
     //[CanEditMultipleObjects]
     [CustomEditor(typeof(PostProcessingProfile))]
-    public class PostProcessingInspector : Editor
-    {
+    public class PostProcessingInspector:Editor {
         static GUIContent s_PreviewTitle = new GUIContent("Monitors");
 
-        PostProcessingProfile m_ConcreteTarget
-        {
+        PostProcessingProfile m_ConcreteTarget {
             get { return target as PostProcessingProfile; }
         }
 
-        int m_CurrentMonitorID
-        {
+        int m_CurrentMonitorID {
             get { return m_ConcreteTarget.monitors.currentMonitorID; }
             set { m_ConcreteTarget.monitors.currentMonitorID = value; }
         }
@@ -30,8 +26,7 @@ namespace UnityEditor.PostProcessing
 
         public bool IsInteractivePreviewOpened { get; private set; }
 
-        void OnEnable()
-        {
+        void OnEnable () {
             if (target == null)
                 return;
 
@@ -42,13 +37,12 @@ namespace UnityEditor.PostProcessing
                 .Where(x => x.IsDefined(typeof(PostProcessingModelEditorAttribute), false));
 
             var customEditors = new Dictionary<Type, PostProcessingModelEditor>();
-            foreach (var editor in editorTypes)
-            {
-                var attr = (PostProcessingModelEditorAttribute)editor.GetCustomAttributes(typeof(PostProcessingModelEditorAttribute), false)[0];
+            foreach (var editor in editorTypes) {
+                var attr = ( PostProcessingModelEditorAttribute )editor.GetCustomAttributes(typeof(PostProcessingModelEditorAttribute), false)[0];
                 var effectType = attr.type;
                 var alwaysEnabled = attr.alwaysEnabled;
 
-                var editorInst = (PostProcessingModelEditor)Activator.CreateInstance(editor);
+                var editorInst = ( PostProcessingModelEditor )Activator.CreateInstance(editor);
                 editorInst.alwaysEnabled = alwaysEnabled;
                 editorInst.profile = target as PostProcessingProfile;
                 editorInst.inspector = this;
@@ -59,8 +53,7 @@ namespace UnityEditor.PostProcessing
             var baseType = target.GetType();
             var property = serializedObject.GetIterator();
 
-            while (property.Next(true))
-            {
+            while (property.Next(true)) {
                 if (!property.hasChildren)
                     continue;
 
@@ -71,9 +64,8 @@ namespace UnityEditor.PostProcessing
                     continue;
 
                 PostProcessingModelEditor editor;
-                if (customEditors.TryGetValue(type, out editor))
-                {
-                    var effect = (PostProcessingModel)srcObject;
+                if (customEditors.TryGetValue(type, out editor)) {
+                    var effect = ( PostProcessingModel )srcObject;
 
                     if (editor.alwaysEnabled)
                         effect.enabled = editor.alwaysEnabled;
@@ -98,10 +90,8 @@ namespace UnityEditor.PostProcessing
 
             var monitorNames = new List<GUIContent>();
 
-            foreach (var monitor in monitors)
-            {
-                if (monitor.IsSupported())
-                {
+            foreach (var monitor in monitors) {
+                if (monitor.IsSupported()) {
                     monitor.Init(m_ConcreteTarget.monitors, this);
                     m_Monitors.Add(monitor);
                     monitorNames.Add(monitor.GetMonitorTitle());
@@ -114,18 +104,15 @@ namespace UnityEditor.PostProcessing
                 m_ConcreteTarget.monitors.onFrameEndEditorOnly = OnFrameEnd;
         }
 
-        void OnDisable()
-        {
-            if (m_CustomEditors != null)
-            {
+        void OnDisable () {
+            if (m_CustomEditors != null) {
                 foreach (var editor in m_CustomEditors.Keys)
                     editor.OnDisable();
 
                 m_CustomEditors.Clear();
             }
 
-            if (m_Monitors != null)
-            {
+            if (m_Monitors != null) {
                 foreach (var monitor in m_Monitors)
                     monitor.Dispose();
 
@@ -136,8 +123,7 @@ namespace UnityEditor.PostProcessing
                 m_ConcreteTarget.monitors.onFrameEndEditorOnly = null;
         }
 
-        void OnFrameEnd(RenderTexture source)
-        {
+        void OnFrameEnd (RenderTexture source) {
             if (!IsInteractivePreviewOpened)
                 return;
 
@@ -147,14 +133,12 @@ namespace UnityEditor.PostProcessing
             IsInteractivePreviewOpened = false;
         }
 
-        public override void OnInspectorGUI()
-        {
+        public override void OnInspectorGUI () {
             serializedObject.Update();
 
             // Handles undo/redo events first (before they get used by the editors' widgets)
             var e = Event.current;
-            if (e.type == EventType.ValidateCommand && e.commandName == "UndoRedoPerformed")
-            {
+            if (e.type == UnityEngine.EventType.ValidateCommand && e.commandName == "UndoRedoPerformed") {
                 foreach (var editor in m_CustomEditors)
                     editor.Value.OnValidate();
             }
@@ -162,8 +146,7 @@ namespace UnityEditor.PostProcessing
             if (!m_ConcreteTarget.debugViews.IsModeActive(BuiltinDebugViewsModel.Mode.None))
                 EditorGUILayout.HelpBox("A debug view is currently enabled. Changes done to an effect might not be visible.", MessageType.Info);
 
-            foreach (var editor in m_CustomEditors)
-            {
+            foreach (var editor in m_CustomEditors) {
                 EditorGUI.BeginChangeCheck();
 
                 editor.Key.OnGUI();
@@ -175,20 +158,16 @@ namespace UnityEditor.PostProcessing
             serializedObject.ApplyModifiedProperties();
         }
 
-        public override GUIContent GetPreviewTitle()
-        {
+        public override GUIContent GetPreviewTitle () {
             return s_PreviewTitle;
         }
 
-        public override bool HasPreviewGUI()
-        {
+        public override bool HasPreviewGUI () {
             return GraphicsUtils.supportsDX11 && m_Monitors.Count > 0;
         }
 
-        public override void OnPreviewSettings()
-        {
-            using (new EditorGUILayout.HorizontalScope())
-            {
+        public override void OnPreviewSettings () {
+            using (new EditorGUILayout.HorizontalScope()) {
                 if (m_CurrentMonitorID < m_Monitors.Count)
                     m_Monitors[m_CurrentMonitorID].OnMonitorSettings();
 
@@ -197,8 +176,7 @@ namespace UnityEditor.PostProcessing
             }
         }
 
-        public override void OnInteractivePreviewGUI(Rect r, GUIStyle background)
-        {
+        public override void OnInteractivePreviewGUI (Rect r, GUIStyle background) {
             IsInteractivePreviewOpened = true;
 
             if (m_CurrentMonitorID < m_Monitors.Count)

@@ -38,6 +38,21 @@ TextureImporter:
   - first:
       213: 3485765965022910622
     second: MOUTH_SMILE
+  - first:
+      213: 1187961194834725857
+    second: back
+  - first:
+      213: -1230289513956745354
+    second: item
+  - first:
+      213: -3090725056340673742
+    second: look
+  - first:
+      213: 7197866658520056255
+    second: looki
+  - first:
+      213: 3662740065791102391
+    second: HEART_004
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -109,6 +124,27 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites:
+    - serializedVersion: 2
+      name: back
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 1417
+        width: 134
+        height: 135
+      alignment: 9
+      pivot: {x: 0.23134328, y: 0.6666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 1187961194834725857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     - serializedVersion: 2
       name: Base
       rect:
@@ -282,7 +318,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 676
-        y: 1225
+        y: 952
         width: 173
         height: 120
       alignment: 9
@@ -303,7 +339,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 851
-        y: 1187
+        y: 914
         width: 170
         height: 158
       alignment: 9
@@ -315,6 +351,90 @@ TextureImporter:
       bones: []
       spriteID: 
       internalID: 2162836046094215502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HEART_004
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 645
+        width: 436
+        height: 223
+      alignment: 9
+      pivot: {x: 0.23394495, y: -0.82735425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 3662740065791102391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: item
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1167
+        width: 181
+        height: 178
+      alignment: 9
+      pivot: {x: 0.29281768, y: 0.69101125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: -1230289513956745354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: look
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 1197
+        width: 152
+        height: 148
+      alignment: 9
+      pivot: {x: 0.32894737, y: 0.722973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: -3090725056340673742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: looki
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 1074
+        width: 180
+        height: 91
+      alignment: 9
+      pivot: {x: 0.33333334, y: 0.96703297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 7197866658520056255
       vertices: []
       indices: 
       edges: []

@@ -7,6 +7,8 @@ public class SpeechControl {
     public int currentSpeechID = 0;
 
     public SpeechPackage Start (List<Speech> speechList) {
+        this.speechList = speechList;
+        currentSpeechID = 0;
         return new SpeechPackage(speechList[0], true);
     }
 
@@ -25,8 +27,8 @@ public class SpeechControl {
 }
 
 public class SpeechPackage {
-    Speech speech;
-    bool isValidSPeech;
+    public Speech speech;
+    public bool isValidSPeech;
     public SpeechPackage (Speech speech,
     bool isValidSPeech) {
         this.speech = speech;

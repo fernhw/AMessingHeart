@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Main:MonoBehaviour {
-    public TypeSequence whatWeDo = TypeSequence.ITEM_SEARCH;
-
+    public TypeSequence currentState = TypeSequence.ITEM_SEARCH;
+    TypeSequence screenPreInventory = TypeSequence.ITEM_SEARCH;
     ObjectManager objs;
     Vector3 start;
     Vector3 targetItem;
-
+    SpeechControl speechControl;
     bool interactionLock = false;
     bool disableUI = false;
 
@@ -16,14 +16,14 @@ public class Main:MonoBehaviour {
         start = transform.localPosition;
         targetItem = transform.localPosition;
         objs = ( ObjectManager )FindObjectOfType(typeof(ObjectManager));
-
+        speechControl = new SpeechControl();
     }
 
     // Update is called once per frame
     void Update () {
         float delta = Time.deltaTime;
 
-        switch (whatWeDo) {
+        switch (currentState) {
         case TypeSequence.ITEM_SEARCH:
         LerpToCamera(start, delta);
         break;
@@ -61,6 +61,10 @@ public class Main:MonoBehaviour {
         float targetCamY = cameraTarget.y;
         float targetCamZ = cameraTarget.z;
 
+        targetCamX += Random.value * .2f - .1f;
+        targetCamY += Random.value * .2f - .1f;
+
+
         if (targetCamX > CAM_LIMIT_X) {
             targetCamX = CAM_LIMIT_X;
         }
@@ -77,17 +81,28 @@ public class Main:MonoBehaviour {
 
     }
 
+    string focusedItem;
+
     public void ClickedData (string objectN, TypeOfTarget type, ClickedHack obj) {
+
+        if (disableUI)
+            return;
+
         print(objectN);
         switch (type) {
+
         case TypeOfTarget.FIXER:
+        if (currentState != TypeSequence.ITEM_SEARCH)
+            break;
         targetItem = obj.transform.localPosition + Vector3.forward * CAM_CLOSENESS;
         ChangeState(TypeSequence.ON_ITEM);
+        DisableUIOnAnim(.8f);
         DisableUIWhileAnimation(ANIMATION_PAUSE_TO_ITEM);
+        focusedItem = obj.objectIdentifier;
         break;
+
         case TypeOfTarget.UI:
         HandleButton(objectN);
-
         break;
 
         default:
@@ -100,19 +115,58 @@ public class Main:MonoBehaviour {
         case "back_button":
         BackButton();
         break;
-        default:
 
+        case "inventory_button":
+        InventoryButton();
+        break;
+
+        case "look_button":
+        StartDialog();
+        break;
+
+        default:
         break;
         }
+    }
+
+    void StartDialog () {
+        switch (focusedItem) {
+        case "retrato":
+        speechControl.Start(Events.bearCutscene);
+        break;
+
+        case "oso":
+        speechControl.Start(Events.bearCutscene);
+        break;
+
+        case "caja_musica":
+        speechControl.Start(Events.bearCutscene);
+        break;
+        }
+        ChangeState(TypeSequence.DIALOG);
     }
 
     void BackButton () {
-        switch (whatWeDo) {
+        switch (currentState) {
         case TypeSequence.ON_ITEM:
         //
         ChangeState(TypeSequence.ITEM_SEARCH);
-        DisableUIWhileAnimation(ANIMATION_PAUSE_TO_VIEW);
-        
+        DisableUIOnAnim(.8f);
+
+        break;
+
+        case TypeSequence.INVENTORY:
+        // it remembers screen pre inventory
+        ChangeState(screenPreInventory);
+        //DisableUIWhileAnimation(ANIMATION_PAUSE_TO_VIEW);
+
+        break;
+
+        case TypeSequence.DIALOG:
+        // it remembers screen pre inventory
+        ChangeState(TypeSequence.DIALOG);
+        //DisableUIWhileAnimation(ANIMATION_PAUSE_TO_VIEW);
+
         break;
 
         default:
@@ -120,20 +174,39 @@ public class Main:MonoBehaviour {
         }
     }
 
+    void InventoryButton () {
+        ChangeState(TypeSequence.INVENTORY);
+    }
+
+    IEnumerator disableUIStateMachine;
     void ChangeState (TypeSequence state) {
-        whatWeDo = state;
         switch (state) {
         case TypeSequence.ITEM_SEARCH:
-
         objs.ItemSearch();
         break;
+
         case TypeSequence.ON_ITEM:
         objs.OnItem();
         break;
 
+        case TypeSequence.INVENTORY:
+        screenPreInventory = currentState;
+        objs.OnInventory();
+        break;
+
+        case TypeSequence.DIALOG:
+        objs.OnDialog(speechControl);
+        break;
+
         default:
         break;
         }
+        currentState = state;
+    }
+
+    void DisableUIOnAnim (float time) {
+        disableUIStateMachine = DisableUIWhileAnimation(time);
+        StartCoroutine(disableUIStateMachine);
     }
 
     IEnumerator DisableUIWhileAnimation (float waitTime) {
@@ -148,6 +221,7 @@ public class Main:MonoBehaviour {
 public enum TypeSequence {
     ITEM_SEARCH,
     ON_ITEM,
-    EXPLANATION,
+    EXPLANATION, // BLACK
+    DIALOG,
     INVENTORY ///??
 }
