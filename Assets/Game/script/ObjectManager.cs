@@ -20,10 +20,12 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject speech;
     public TextMeshProUGUI dialogText;
-    public GameObject merry;
+    public Merry merry;
 
     public bool wholeScreenWasEnabled = false;
     public bool cameraIsOnTheItem = false;
+
+    TypeSequence prevType;
 
     private void Start () {
         //SetupStage
@@ -33,6 +35,7 @@ public class ObjectManager : MonoBehaviour
 
 
     public void ItemSearch () {
+        prevType = TypeSequence.ITEM_SEARCH;
         cameraIsOnTheItem = false;
         DisableScreens();
         inventoryButton.SetActive(true);
@@ -40,27 +43,51 @@ public class ObjectManager : MonoBehaviour
     }
 
     public void OnItem () {
+        prevType = TypeSequence.ON_ITEM;
         cameraIsOnTheItem = true;
         DisableScreens();
         inventoryButton2.SetActive(true);
     }
 
-    public void OnDialog (SpeechControl speechController) {
+    public void OnDialog (SpeechControl speechController, Progress progress) {
         DisableScreens();
+        uiScreenClick.SetActive(true);
         wholeScreen.SetActive(true);
         speech.SetActive(true);
-        HandleSpeechEvent(speechController.Current().speech);
+        HandleSpeechEvent(speechController.Current().speech, progress);
     }
 
-    public void HandleSpeechEvent (Speech speech) {
+    public TypeSequence NextSpeechAndNewTypeSequence (SpeechControl speechController, Progress progress) {
+        DisableScreens();
+        SpeechPackage speechPack = speechController.Continue();
+        Speech speechHeld = speechPack.speech;
+        if (!speechPack.isValidSPeech) {
+            if(prevType == TypeSequence.ON_ITEM) {
+                OnItem();
+                return TypeSequence.ON_ITEM;
+            } else {
+                //TypeSequence.ITEM_SEARCH
+                ItemSearch();
+                return TypeSequence.ITEM_SEARCH;
+            }
+        }
+        uiScreenClick.SetActive(true);
+        wholeScreen.SetActive(true);
+        speech.SetActive(true);
+        HandleSpeechEvent(speechHeld, progress);
+        return TypeSequence.DIALOG;
+    }
+
+    public void HandleSpeechEvent (Speech speech, Progress progress) {
         dialogText.text = speech.dialog;
         switch (speech.type) {
         case EventType.DIALOG:
         case EventType.DIMMED_DIALOG:
-        merry.SetActive(true);
+        merry.gameObject.SetActive(true);
+        merry.SetMerry(speech.emotion, progress.GetHeartStatus());
         break;
         default:
-        merry.SetActive(false);
+        merry.gameObject.SetActive(false);
         break;
         }
     }
@@ -74,12 +101,13 @@ public class ObjectManager : MonoBehaviour
 
     void DisableScreens () {
         depthOff();
-        merry.SetActive(false);
+        merry.gameObject.SetActive(false);
         speech.SetActive(false);
         inventoryButton2.SetActive(false);
         inventoryButton.SetActive(false);
         inventoryScreen.SetActive(false);
         backButton.SetActive(false);
+        uiScreenClick.SetActive(false);
     }
 
     public void DisableUI () {

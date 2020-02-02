@@ -64,14 +64,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Game\script\ClickedHack.cs" />
+    <Compile Include="Assets\Game\script\GameEvent.cs" />
     <Compile Include="Assets\Game\script\Main.cs" />
     <Compile Include="Assets\Game\script\Merry.cs" />
     <Compile Include="Assets\Game\script\Models\Bases\ItemDescription.cs" />
     <Compile Include="Assets\Game\script\Models\Bases\Speech.cs" />
     <Compile Include="Assets\Game\script\Models\Events.cs" />
     <Compile Include="Assets\Game\script\ObjectManager.cs" />
+    <Compile Include="Assets\Game\script\Progress.cs" />
     <Compile Include="Assets\Game\script\SpeechControl.cs" />
-    <Compile Include="Assets\GameEvent.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />

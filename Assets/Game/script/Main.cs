@@ -5,10 +5,13 @@ using UnityEngine;
 public class Main:MonoBehaviour {
     public TypeSequence currentState = TypeSequence.ITEM_SEARCH;
     TypeSequence screenPreInventory = TypeSequence.ITEM_SEARCH;
+    TypeSequence screenPreItemFocus = TypeSequence.ITEM_SEARCH;
+
     ObjectManager objs;
     Vector3 start;
     Vector3 targetItem;
     SpeechControl speechControl;
+    Progress progress;
     bool interactionLock = false;
     bool disableUI = false;
 
@@ -17,6 +20,7 @@ public class Main:MonoBehaviour {
         targetItem = transform.localPosition;
         objs = ( ObjectManager )FindObjectOfType(typeof(ObjectManager));
         speechControl = new SpeechControl();
+        progress = new Progress();
     }
 
     // Update is called once per frame
@@ -123,6 +127,23 @@ public class Main:MonoBehaviour {
         case "look_button":
         StartDialog();
         break;
+        case "screen":
+        Continue();
+        break;
+        default:
+        break;
+        }
+    }
+
+    void Continue () {
+        switch (currentState) {
+        case TypeSequence.DIALOG:
+        // it remembers screen pre inventory
+        currentState = objs.NextSpeechAndNewTypeSequence(speechControl, progress);
+
+        //DisableUIWhileAnimation(ANIMATION_PAUSE_TO_VIEW);
+
+        break;
 
         default:
         break;
@@ -164,7 +185,7 @@ public class Main:MonoBehaviour {
 
         case TypeSequence.DIALOG:
         // it remembers screen pre inventory
-        ChangeState(TypeSequence.DIALOG);
+        ChangeState(screenPreInventory);
         //DisableUIWhileAnimation(ANIMATION_PAUSE_TO_VIEW);
 
         break;
@@ -186,6 +207,7 @@ public class Main:MonoBehaviour {
         break;
 
         case TypeSequence.ON_ITEM:
+        screenPreItemFocus = currentState;
         objs.OnItem();
         break;
 
@@ -195,7 +217,7 @@ public class Main:MonoBehaviour {
         break;
 
         case TypeSequence.DIALOG:
-        objs.OnDialog(speechControl);
+        objs.OnDialog(speechControl, progress);
         break;
 
         default:
