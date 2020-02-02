@@ -63,6 +63,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ClickedHack.cs" />
+    <Compile Include="Assets\Game\script\Main.cs" />
+    <Compile Include="Assets\Game\script\Models\Bases\ItemDescription.cs" />
+    <Compile Include="Assets\Game\script\Models\Bases\Speech.cs" />
+    <Compile Include="Assets\Merry.cs" />
+    <Compile Include="Assets\ObjectManager.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\GetSetAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\MinAttribute.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Attributes\TrackballAttribute.cs" />
@@ -108,9 +114,6 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\MaterialFactory.cs" />
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
-    <Compile Include="Assets\script\Main.cs" />
-    <Compile Include="Assets\script\Models\Bases\ItemDescription.cs" />
-    <Compile Include="Assets\script\Models\Bases\Speech.cs" />
     <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

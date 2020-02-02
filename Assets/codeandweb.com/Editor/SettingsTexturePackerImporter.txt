@@ -2,14 +2,17 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/Game/img/BG_size.tpsheet
+- Assets/Game/img/Merry.tpsheet
 - Assets/img/BG_size.tpsheet
-- Assets/img/Merry.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/Game/img/BG_size.png
+- Assets/Game/img/Merry.png
 - Assets/img/BG_size.png
-- Assets/img/Merry.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
 - 
 - 
 enableDebugOutput: 0
