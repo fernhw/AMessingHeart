@@ -5379,6 +5379,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efd2af846f5c415c9fed03ea623cce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oldBear: {fileID: 1737074320}
+  newBear: {fileID: 419191933}
+  oldBox: {fileID: 1052072193}
+  newBox: {fileID: 699263019}
+  oldPortrait: {fileID: 1431577815}
+  newPortrait: {fileID: 1449621170}
   uiScreenClick: {fileID: 1781306750}
   wholeScreen: {fileID: 677858123}
   inventoryScreen: {fileID: 1828622567}
@@ -6700,7 +6706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1633149309}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -320.8, y: -109.2, z: -6.899994}
+  m_LocalPosition: {x: -249.4, y: -120.1, z: -6.899994}
   m_LocalScale: {x: 74.92572, y: 41.368076, z: 67.123825}
   m_Children:
   - {fileID: 508949064}

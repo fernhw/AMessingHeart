@@ -6,6 +6,8 @@ using UnityEngine.PostProcessing;
 
 public class ObjectManager : MonoBehaviour
 {
+    public GameObject oldBear, newBear, oldBox, newBox, oldPortrait, newPortrait;
+    
     public GameObject uiScreenClick;
     public GameObject wholeScreen; //ui clicker
 
@@ -106,23 +108,35 @@ public class ObjectManager : MonoBehaviour
         Speech speechHeld = speechPack.speech;
 
         if (speechHeld.type == EventType.FIX) {
-            //  ItemSearch();
             if (speechHeld.dialog == "bear" && progress.Bear == false) {
                 progress.Bear = true;
                 buttonInventory.SetActive(false);
                 threadInventory.SetActive(false);
+                oldBear.SetActive(false);
+                newBear.SetActive(true);
                 progress.heartHeal++;
-
-            } else if (speechHeld.dialog == "frame") {
+            } else if (speechHeld.dialog == "frame" && progress.Frame == false) {
                 progress.Frame = true;
                 photo1Inventory.SetActive(false);
                 photo2Inventory.SetActive(false);
+                oldPortrait.SetActive(false);
+                newPortrait.SetActive(true);
                 progress.heartHeal++;
-            } else if (speechHeld.dialog == "bear") {
+            } else if (speechHeld.dialog == "box" && progress.Box == false) {
                 progress.Frame = true;
                 ballerinaInventory.SetActive(false);
                 winderInventory.SetActive(false);
+                oldBox.SetActive(false);
+                newBox.SetActive(true);
                 progress.heartHeal++;
+            } else if (speechHeld.dialog == "finale" && progress.Box == false) {
+                progress.Frame = true;
+                ballerinaInventory.SetActive(false);
+                winderInventory.SetActive(false);
+                oldBox.SetActive(false);
+                newBox.SetActive(true);
+                progress.heartHeal++;
+                //FINALE
             }
 
             merry.heart1.SetActive(false);

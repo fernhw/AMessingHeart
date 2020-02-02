@@ -15,6 +15,9 @@ public class Main:MonoBehaviour {
     const float ANIMATION_PAUSE_TO_VIEW = .7f;
 
 
+
+
+
     public TypeSequence currentState = TypeSequence.ITEM_SEARCH;
     TypeSequence screenPreInventory = TypeSequence.ITEM_SEARCH;
     TypeSequence screenPreItemFocus = TypeSequence.ITEM_SEARCH;
@@ -140,6 +143,8 @@ public class Main:MonoBehaviour {
         inventoryLayer = 0;
         prevKey = key;
         switch (focusedItem) {
+
+
         case "oso":
         switch (key) {
         case "button":
@@ -147,6 +152,36 @@ public class Main:MonoBehaviour {
         inventoryLayer = 1;
         break;
         }
+        break;
+
+
+        case "caja_musica":
+        switch (key) {
+        case "winder":
+        speechControl.Start(Events.boxButtonWinder);
+        inventoryLayer = 1;
+        break;
+        case "ballerina":
+        speechControl.Start(Events.boxButtonBall);
+        inventoryLayer = 1;
+        break;
+        }
+        break;
+
+
+        case "retrato":
+        switch (key) {
+        case "photo1":
+        speechControl.Start(Events.pictureButtonP1);
+        inventoryLayer = 1;
+        break;
+        case "photo2":
+        speechControl.Start(Events.pictureButtonP2);
+        inventoryLayer = 1;
+        break;
+        }
+
+
         break;
         default:
         //speechControl.Start(Events.what);
@@ -172,7 +207,20 @@ public class Main:MonoBehaviour {
                 speechControl.Start(Events.fixBear);
             }
         }
-
+        if (focusedItem == "caja_musica") {
+            if (prevKey == "ballerina" && key == "winder") {
+                speechControl.Start(Events.fixBox);
+            } else if (prevKey == "winder" && key == "ballerina") {
+                speechControl.Start(Events.fixBox);
+            }
+        }
+        if (focusedItem == "retrato") {
+            if (prevKey == "photo1" && key == "photo2") {
+                speechControl.Start(Events.pictureButtonFinale);
+            } else if (prevKey == "photo2" && key == "photo1") {
+                speechControl.Start(Events.pictureButtonFinale);
+            }
+        }
         ChangeState(TypeSequence.DIALOG, inventoryButtonInOnItemView);
     }
 
