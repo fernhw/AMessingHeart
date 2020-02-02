@@ -91,7 +91,7 @@ public class ObjectManager : MonoBehaviour
     }
 
     public TypeSequence NextSpeechAndNewTypeSequence (SpeechControl speechController, Progress progress) {
-        if(currentCharacterInScroll < totalCharactersInText + 23) {
+        if(currentCharacterInScroll < totalCharactersInText + 15) {
             if (currentCharacterInScroll < totalCharactersInText) {
                 currentCharacterInScrollf = ( float )totalCharactersInText;
                 currentCharacterInScroll = totalCharactersInText;
@@ -104,43 +104,15 @@ public class ObjectManager : MonoBehaviour
         DisableScreens();
         SpeechPackage speechPack = speechController.Continue();
         Speech speechHeld = speechPack.speech;
-        if (!speechPack.isValidSPeech) {
-            if(prevType == TypeSequence.ON_ITEM) {
-                OnItem(showInventoryButton);
-                return TypeSequence.ON_ITEM;
-            } else {
-                //TypeSequence.ITEM_SEARCH
-                ItemSearch();
-                return TypeSequence.ITEM_SEARCH;
-            }
-        }
-        if(speechHeld.type == EventType.OPEN_INVENTORY) {
-            OnInventory();
-            prevType = TypeSequence.ON_ITEM;
-            return TypeSequence.INVENTORY;
-        }
-
-        if (speechHeld.type == EventType.OPEN_INVENTORY_2ND_STAGE) {
-            OnInventory();
-            prevType = TypeSequence.ON_ITEM;
-            return TypeSequence.INVENTORY;
-        }
-
-        if (speechHeld.type == EventType.AQUIRE_ITEM) {
-            ItemSearch();
-            progress.GetItem(speechHeld.dialog);
-            prevType = TypeSequence.ON_ITEM;
-            return TypeSequence.ITEM_SEARCH;
-        }
 
         if (speechHeld.type == EventType.FIX) {
-            ItemSearch();
-            if(speechHeld.dialog == "bear" && progress.Bear == false) {
+            //  ItemSearch();
+            if (speechHeld.dialog == "bear" && progress.Bear == false) {
                 progress.Bear = true;
                 buttonInventory.SetActive(false);
                 threadInventory.SetActive(false);
                 progress.heartHeal++;
-                
+
             } else if (speechHeld.dialog == "frame") {
                 progress.Frame = true;
                 photo1Inventory.SetActive(false);
@@ -174,10 +146,44 @@ public class ObjectManager : MonoBehaviour
             merry.heart4.SetActive(true);
             break;
             }
+            speechPack = speechController.Continue();
+            speechHeld = speechPack.speech;
+            //prevType = TypeSequence.ON_ITEM;
+            //  return TypeSequence.ITEM_SEARCH;
+        }
 
+
+
+        if (!speechPack.isValidSPeech) {
+            if(prevType == TypeSequence.ON_ITEM) {
+                OnItem(showInventoryButton);
+                return TypeSequence.ON_ITEM;
+            } else {
+                //TypeSequence.ITEM_SEARCH
+                ItemSearch();
+                return TypeSequence.ITEM_SEARCH;
+            }
+        }
+        if(speechHeld.type == EventType.OPEN_INVENTORY) {
+            OnInventory();
+            prevType = TypeSequence.ON_ITEM;
+            return TypeSequence.INVENTORY;
+        }
+
+        if (speechHeld.type == EventType.OPEN_INVENTORY_2ND_STAGE) {
+            OnInventory();
+            prevType = TypeSequence.ON_ITEM;
+            return TypeSequence.INVENTORY;
+        }
+
+        if (speechHeld.type == EventType.AQUIRE_ITEM) {
+            ItemSearch();
+            progress.GetItem(speechHeld.dialog);
             prevType = TypeSequence.ON_ITEM;
             return TypeSequence.ITEM_SEARCH;
         }
+
+       
 
         HandleSpeechEvent(speechHeld, progress);
         return TypeSequence.DIALOG;

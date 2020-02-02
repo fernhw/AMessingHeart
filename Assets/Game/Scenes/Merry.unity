@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: cat
   objectIdentifier: retrato
-  type: 2
+  type: 3
 --- !u!1 &48572376
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: ballerina
   objectIdentifier: item
-  type: 1
+  type: 0
 --- !u!65 &48572379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: stringstring
   objectIdentifier: inventory
-  type: 0
+  type: 1
 --- !u!1 &392220148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: button
   objectIdentifier: item
-  type: 1
+  type: 0
 --- !u!65 &471240049
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: photo_1
   objectIdentifier: item
-  type: 1
+  type: 0
 --- !u!65 &484633339
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2205,7 +2205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: photo1
   objectIdentifier: inventory
-  type: 0
+  type: 1
 --- !u!1 &581779996
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,7 +3485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: photo2
   objectIdentifier: inventory
-  type: 0
+  type: 1
 --- !u!1 &834381366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,7 +3534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: cat
   objectIdentifier: caja_musica
-  type: 2
+  type: 3
 --- !u!65 &834381369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4097,7 +4097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -442}
+  m_AnchoredPosition: {x: -13, y: -442}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &908084786
@@ -4303,7 +4303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: photo_2
   objectIdentifier: item
-  type: 1
+  type: 0
 --- !u!65 &911183462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4733,7 +4733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: winder
   objectIdentifier: inventory
-  type: 0
+  type: 1
 --- !u!1 &1016983100
 GameObject:
   m_ObjectHideFlags: 0
@@ -5487,7 +5487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: button
   objectIdentifier: inventory
-  type: 0
+  type: 1
 --- !u!1 &1135205926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,7 +5862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: book
   objectIdentifier: oso
-  type: 2
+  type: 3
 --- !u!65 &1282476840
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6151,7 +6151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: stringstring
   objectIdentifier: item
-  type: 1
+  type: 0
 --- !u!65 &1420527348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6312,7 +6312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: ballerina
   objectIdentifier: inventory
-  type: 0
+  type: 1
 --- !u!1 &1449621170
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,7 +6721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idString: winder
   objectIdentifier: item
-  type: 1
+  type: 0
 --- !u!65 &1633149312
 BoxCollider:
   m_ObjectHideFlags: 0

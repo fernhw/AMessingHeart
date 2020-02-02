@@ -11,7 +11,7 @@ public static class Events {
         new Speech("It's missing an eye.", emotion: MerryStatus.WORRIED)
     };
     public static List<Speech> bearCutsceneInv = new List<Speech> {
-        new Speech("I think I can give you an eye buddie."),
+        new Speech("I think I can give you an eye buddy."),
         new Speech(type:EventType.OPEN_INVENTORY)
     };
 
@@ -99,8 +99,9 @@ public static class Events {
         new Speech("Snip", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("Snip", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
         new Speech("Snip", emotion: MerryStatus.HAPPY, type: EventType.BLACK_SCREEN_DIALOG),
-        new Speech("100 times better", emotion: MerryStatus.HAPPY),
         new Speech("bear", type: EventType.FIX),
+        new Speech("100 times better", emotion: MerryStatus.HAPPY),
+        
 
     };
 
