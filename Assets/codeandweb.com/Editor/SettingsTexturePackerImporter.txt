@@ -3,13 +3,13 @@ importPivots: 1
 tpsheetFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
 - Assets/Game/img/BG_size.tpsheet
+- Assets/Game/img/items.tpsheet
 - Assets/Game/img/Merry.tpsheet
-- Assets/img/BG_size.tpsheet
 textureFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites.png
 - Assets/Game/img/BG_size.png
+- Assets/Game/img/items.png
 - Assets/Game/img/Merry.png
-- Assets/img/BG_size.png
 normalmapFileNames:
 - Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
 - 

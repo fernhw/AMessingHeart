@@ -29,6 +29,10 @@ public class Merry:MonoBehaviour {
         mouthSad.SetActive(true);
         eyesSad.SetActive(true);
         break;
+        case MerryStatus.AWRY:
+        mouthHappy.SetActive(true);
+        eyesWorried.SetActive(true);
+        break;
         case MerryStatus.WORRIED:
         mouthSad.SetActive(true);
         eyesWorried.SetActive(true);
@@ -73,6 +77,7 @@ public class Merry:MonoBehaviour {
 
 public enum MerryStatus {
     REGULAR,
+    AWRY,
     HAPPY,
     SAD,
     WORRIED,

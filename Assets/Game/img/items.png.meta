@@ -1,0 +1,331 @@
+fileFormatVersion: 2
+guid: 43fdb918442294e3a9b93b0aaec42d70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4351071672536715400
+    second: boton
+  - first:
+      213: 3254202644626979021
+    second: caja bailarina completa
+  - first:
+      213: -1900408558855419189
+    second: cuadro incompleto
+  - first:
+      213: -7985941840932601416
+    second: cuadro1
+  - first:
+      213: 5898265048497927128
+    second: cuadro2
+  - first:
+      213: 8524852751948896091
+    second: cuadrocompleto
+  - first:
+      213: 49029608057289611
+    second: hilo1
+  - first:
+      213: 4575517623870441580
+    second: osito
+  - first:
+      213: -8655084768895992896
+    second: pieaza bailarina1
+  - first:
+      213: 359954027183376040
+    second: pieaza bailarina2
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: boton
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1443
+        width: 392
+        height: 202
+      alignment: 9
+      pivot: {x: 0.49234694, y: 0.519802}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 4351071672536715400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caja bailarina completa
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1042
+        width: 336
+        height: 399
+      alignment: 9
+      pivot: {x: 0.4047619, y: 0.49874687}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 3254202644626979021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadro incompleto
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 1705
+        width: 397
+        height: 342
+      alignment: 9
+      pivot: {x: 0.50125945, y: 0.50292397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: -1900408558855419189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadro1
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 1020
+        width: 171
+        height: 249
+      alignment: 9
+      pivot: {x: 0.94736844, y: 0.49799198}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: -7985941840932601416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadro2
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 1145
+        width: 132
+        height: 214
+      alignment: 9
+      pivot: {x: 0.10606061, y: 0.43457943}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 5898265048497927128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cuadrocompleto
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 1361
+        width: 397
+        height: 342
+      alignment: 9
+      pivot: {x: 0.50125945, y: 0.50292397}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 8524852751948896091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hilo1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1647
+        width: 398
+        height: 400
+      alignment: 9
+      pivot: {x: 0.5025126, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 49029608057289611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: osito
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1271
+        width: 218
+        height: 385
+      alignment: 9
+      pivot: {x: 0.53669727, y: 0.5012987}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 4575517623870441580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieaza bailarina1
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 970
+        width: 294
+        height: 389
+      alignment: 9
+      pivot: {x: 0.4931973, y: 0.49357328}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: -8655084768895992896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pieaza bailarina2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1658
+        width: 222
+        height: 389
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49357328}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: 359954027183376040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,10 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Main:MonoBehaviour {
+
+
+    const float LIMIT_CAM_TWEEN = 0.4f;
+    const float CAM_CLOSENESS = -183;
+    const float CAM_SPEED = 5;
+
+    const float CAM_LIMIT_X = 230;
+
+    const float ANIMATION_PAUSE_TO_ITEM = 1;
+    const float ANIMATION_PAUSE_TO_VIEW = .7f;
+
+
     public TypeSequence currentState = TypeSequence.ITEM_SEARCH;
     TypeSequence screenPreInventory = TypeSequence.ITEM_SEARCH;
     TypeSequence screenPreItemFocus = TypeSequence.ITEM_SEARCH;
 
+    string focusedItem;
     ObjectManager objs;
     Vector3 start;
     Vector3 targetItem;
@@ -41,14 +54,6 @@ public class Main:MonoBehaviour {
 
     }
 
-    const float LIMIT_CAM_TWEEN = 0.4f;
-    const float CAM_CLOSENESS = -183;
-    const float CAM_SPEED = 10;
-
-    const float CAM_LIMIT_X = 230;
-
-    const float ANIMATION_PAUSE_TO_ITEM = 1;
-    const float ANIMATION_PAUSE_TO_VIEW = .7f;
 
     void LerpToCamera (Vector3 cameraTarget, float delta) {
 
@@ -84,8 +89,6 @@ public class Main:MonoBehaviour {
         this.transform.localPosition = new Vector3(camTargX, camTargY, camTargZ);
 
     }
-
-    string focusedItem;
 
     public void ClickedData (string objectN, TypeOfTarget type, ClickedHack obj) {
 
@@ -153,7 +156,7 @@ public class Main:MonoBehaviour {
     void StartDialog () {
         switch (focusedItem) {
         case "retrato":
-        speechControl.Start(Events.bearCutscene);
+        speechControl.Start(Events.frameCutscene);
         break;
 
         case "oso":
@@ -161,7 +164,7 @@ public class Main:MonoBehaviour {
         break;
 
         case "caja_musica":
-        speechControl.Start(Events.bearCutscene);
+        speechControl.Start(Events.dollCutscene);
         break;
         }
         ChangeState(TypeSequence.DIALOG);

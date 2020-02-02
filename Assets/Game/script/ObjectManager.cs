@@ -11,7 +11,6 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject inventoryScreen;
 
-
     public PostProcessingBehaviour post;
 
     public GameObject backButton;
@@ -20,6 +19,10 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject speech;
     public TextMeshProUGUI dialogText;
+
+    public GameObject fullblackScreen;
+    public GameObject actionBlackOverlay;
+    public TextMeshProUGUI actionText;
     public Merry merry;
 
     public bool wholeScreenWasEnabled = false;
@@ -27,12 +30,21 @@ public class ObjectManager : MonoBehaviour
 
     TypeSequence prevType;
 
+    int currentCharacterInScroll = 0;
+    int totalCharactersInText = 0;
+
+
     private void Start () {
         //SetupStage
         ItemSearch();
         depthOff();
     }
 
+    private void Update () {
+        currentCharacterInScroll++;
+        actionText.maxVisibleCharacters = currentCharacterInScroll;
+        dialogText.maxVisibleCharacters = currentCharacterInScroll;
+    }
 
     public void ItemSearch () {
         prevType = TypeSequence.ITEM_SEARCH;
@@ -50,10 +62,7 @@ public class ObjectManager : MonoBehaviour
     }
 
     public void OnDialog (SpeechControl speechController, Progress progress) {
-        DisableScreens();
-        uiScreenClick.SetActive(true);
-        wholeScreen.SetActive(true);
-        speech.SetActive(true);
+        DisableScreens();      
         HandleSpeechEvent(speechController.Current().speech, progress);
     }
 
@@ -71,25 +80,45 @@ public class ObjectManager : MonoBehaviour
                 return TypeSequence.ITEM_SEARCH;
             }
         }
-        uiScreenClick.SetActive(true);
-        wholeScreen.SetActive(true);
-        speech.SetActive(true);
         HandleSpeechEvent(speechHeld, progress);
         return TypeSequence.DIALOG;
     }
 
     public void HandleSpeechEvent (Speech speech, Progress progress) {
-        dialogText.text = speech.dialog;
+        DisableScreens();
         switch (speech.type) {
-        case EventType.DIALOG:
         case EventType.DIMMED_DIALOG:
         merry.gameObject.SetActive(true);
         merry.SetMerry(speech.emotion, progress.GetHeartStatus());
+        actionBlackOverlay.SetActive(true);
+        actionText.text = speech.dialog;
+        totalCharactersInText = actionText.textInfo.characterCount;
+        actionText.maxVisibleCharacters = 0;
+        break;
+        case EventType.DIALOG:
+        merry.gameObject.SetActive(true);
+        merry.SetMerry(speech.emotion, progress.GetHeartStatus());
+        dialogText.text = speech.dialog;
+        totalCharactersInText = dialogText.textInfo.characterCount;
+        dialogText.maxVisibleCharacters = 0;
+        this.speech.SetActive(true);
+        break;
+        case EventType.BLACK_SCREEN_DIALOG:
+        fullblackScreen.SetActive(true);
+        actionBlackOverlay.SetActive(true);
+        actionText.text = speech.dialog;
+        totalCharactersInText = actionText.textInfo.characterCount;
+        actionText.maxVisibleCharacters = 0;
         break;
         default:
         merry.gameObject.SetActive(false);
+        wholeScreen.SetActive(true);
+        this.speech.SetActive(true);
         break;
         }
+        currentCharacterInScroll = 0;
+        uiScreenClick.SetActive(true);
+        wholeScreen.SetActive(true);
     }
 
     public void OnInventory () {
@@ -108,6 +137,8 @@ public class ObjectManager : MonoBehaviour
         inventoryScreen.SetActive(false);
         backButton.SetActive(false);
         uiScreenClick.SetActive(false);
+        actionBlackOverlay.SetActive(false);
+        fullblackScreen.SetActive(false);
     }
 
     public void DisableUI () {

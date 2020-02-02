@@ -25,7 +25,9 @@ public enum EventType {
     CG,
     DIALOG,
     DIMMED_DIALOG,
-    BLACK_SCREEN_DIALOG
+    BLACK_SCREEN_DIALOG,
+    AQUIRE_ITEM
+
 }
 
 public enum SpecialEffect {
