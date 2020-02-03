@@ -1,9 +1,12 @@
 # AMessingHeart
 Heartless doll wakes in messy room
 
-Direction, Character design, Programming, dialog
 
-Fernando Holguin ( @fern_hw )
+
+
+*Direction, Character design, Programming, dialog*
+
+*Fernando Holguin ( @fern_hw )*
 
 website http://fernhw.com/
 
@@ -15,15 +18,17 @@ instagram http://instagram.com/fern_hw
 
 
 
-Environment art, painting, color coordination
-
-Cristopher Páez
 
 
+*Environment art, painting, color coordination*
 
-Item art, CG art
+*Cristopher Páez*
 
-Juan Carlos Cobos ( @juankamikaze )
+
+
+*Item art, CG art*
+
+*Juan Carlos Cobos ( @juankamikaze )*
 
 twitter https://twitter.com/juankamikaze
 
@@ -31,6 +36,6 @@ instagram https://www.instagram.com/juankamikaze
 
 
 
-Dialog assistance, final presentation
+*Dialog assistance, final presentation*
 
-Ronnie Nieto 
+*Ronnie Nieto*
