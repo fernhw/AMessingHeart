@@ -3,12 +3,12 @@
     <Files>
       <File FileName="Assets/Game/script/Main.cs" Line="27" Column="23" />
       <File FileName="Assets/Merry.cs" Line="40" Column="33" />
-      <File FileName="Assets/Game/script/ObjectManager.cs" Line="211" Column="39" />
-      <File FileName="Assets/Game/script/Models/Cutscenes.cs" Line="12" Column="7" />
+      <File FileName="Assets/Game/script/ObjectManager.cs" Line="172" Column="48" />
+      <File FileName="Assets/Game/script/Models/Cutscenes.cs" Line="196" Column="54" />
       <File FileName="Assets/Game/script/SpeechControl.cs" Line="9" Column="59" />
       <File FileName="Assets/Game/script/ClickedHack.cs" Line="28" Column="1" />
       <File FileName="Assets/GameStart.cs" Line="19" Column="47" />
-      <File FileName="Assets/Game/script/Models/Bases/Speech.cs" Line="9" Column="1" />
+      <File FileName="Assets/Game/script/Models/Bases/Speech.cs" Line="23" Column="12" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
