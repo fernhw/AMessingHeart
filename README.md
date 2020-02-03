@@ -27,6 +27,6 @@ instagram https://www.instagram.com/juankamikaze
  <br />
  <br />
  <br />
-**Dialog assistance, final presentation** &nbsp; 
+**Dialog assistance, final presentation**  <br />
 **Ronnie Nieto**
 
