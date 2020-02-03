@@ -18,15 +18,15 @@ Portfolio http://fernhw.com/portfolio/
 twitter https://twitter.com/fern_hw
 
 instagram http://instagram.com/fern_hw
-
-
-
+.
+.
+.
 **Environment art, painting, color coordination**
 
 **Cristopher Páez**
-
-
-
+.
+.
+.
 **Item art, CG art**
 
 **Juan Carlos Cobos ( @juankamikaze )**
@@ -34,9 +34,9 @@ instagram http://instagram.com/fern_hw
 twitter https://twitter.com/juankamikaze
 
 instagram https://www.instagram.com/juankamikaze
-
-
-
+.
+.
+.
 **Dialog assistance, final presentation**
 
 **Ronnie Nieto**
